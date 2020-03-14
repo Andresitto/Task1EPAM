@@ -4,11 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Задание_4_ЕПАМ //Написать функцию нахождения факториала числа n.
+namespace Task_4 //Написать функцию нахождения факториала числа n.
 {
     class Program
     {
-        public static int factorial(int N)
+        static void Main(string[] args)
+        {
+            {
+                int N = int.Parse(Console.ReadLine());
+                getNumber();
+                Console.WriteLine("Факториал для числа: " + N + " = " + factorial(N)); // Вывод вычисления факториала.
+            }
+        }
+        private static void getNumber()
+        {
+                Console.WriteLine("Введите целое число для вычисления факториала: ");
+        }
+        private static int factorial(int N)
         {
             //Функция нахождения факториала
             if (N <= 0) 
@@ -18,14 +30,6 @@ namespace Задание_4_ЕПАМ //Написать функцию нахож
             else 
                 return N * factorial(N - 1); 
         }
-        static void Main(string[] args)
-        {
-            {
-                int N;
-                Console.WriteLine("Введите целое число для вычисления факториала: ");
-                N=int.Parse(Console.ReadLine());
-                Console.WriteLine("Факториал для числа: " + N + " = " + factorial(N)); // Вывод вычисления факториала.
-            }
-        }
+        
     }
 }
