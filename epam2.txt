@@ -4,12 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Задание_2_EPAM
+namespace Task_2 //Напишите функцию, которая для отсортированного маcсива целых чисел определяет, содержится ли в нем заданное значение.
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            {
+                //Ввод размера массива 
+                Console.WriteLine("Введите размер массива: ");
+                int elementsCount = int.Parse(Console.ReadLine());
+                int[] myArray = new int[elementsCount];
+
+                getMyArrayKeys(myArray);//Функция ввода массива с клавиатуры
+
+                sortMyArray(myArray);//Сортировананка массива из 1 задания(можно использовать библиотечную функцию Array.Sort(myArray) вместо написанной)
+
+                //Ввод значения
+                Console.WriteLine("Введите целое число, для проверки присутсвия его в массиве");
+                int setNumber = int.Parse(Console.ReadLine());
+
+                sameNumber(myArray, setNumber);//Вызов функции нахождения заданного числа
+
+                Console.WriteLine();
+                Console.ReadLine();
+            }
+        }
+
+        //Функция ввода массива с клавиатуры
+        private static void getMyArrayKeys(int[] myArray)
+        {
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.Write("Введите " + (i + 1) + " число массива: ");
+                int element = int.Parse(Console.ReadLine());
+                myArray[i] = element;
+            }
+            Console.WriteLine();
+        }
         //Функция сортировки
-        public static void sortmyArray(int[] myArray)
+        private static void sortMyArray(int[] myArray)
         {
             int check; //переменная для цикла сортировки
             for (int i = 0; i < myArray.Length - 1; i++)
@@ -26,49 +60,29 @@ namespace Задание_2_EPAM
             }
         }
         //Функция проверки наличия заданного числа
-        public static void samenumber(int[] myArray,int zchislo)
+        private static void sameNumber(int[] myArray, int setNumber)
         {
+            
             for (int i = 0; i < myArray.Length; i++)
             {
-                if (zchislo==myArray[i])
+                
+                if (setNumber == myArray[i])
                 {
-                    Console.WriteLine("Заданного числа " + zchislo+" есть в массиве");
-                    break;
+                    bool check = true;
+                    if (check == true)
+                    {
+                        Console.WriteLine("Заданное число "+ setNumber+" есть в массиве");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Заданного числа " + setNumber + " нет в массиве");
+                    }
                 }
+                
             }
+            
         }
-        static void Main(string[] args)
-        {
-            {
-                //Ввод размера массива 
-                Console.WriteLine("Введите размер массива: ");
-                int elementscount = int.Parse(Console.ReadLine());
-                int[] myArray = new int[elementscount];
-
-                //Ввод массива с клавиатуры
-                Console.WriteLine("Введите целые числа в массив");
-                for (int i = 0; i < myArray.Length; i++)
-                {
-                    
-                    Console.Write("Введите " + (i + 1) + " число массива: ");
-                    int element = int.Parse(Console.ReadLine());
-                    myArray[i] = element;
-                }
-                Console.WriteLine();
-
-                //Сортировананка массива из 1 задания(можно использовать Array.Sort(myArray) вместо написанной функции)
-                sortmyArray(myArray);
-
-                //Ввод значения
-                Console.WriteLine("Введите целое число, для проверки присутсвия его в массиве");
-                int zchislo = int.Parse(Console.ReadLine());
-
-                //Вызов функции
-                samenumber(myArray,zchislo);
-
-                Console.WriteLine();
-                Console.ReadLine();
-            }
-        }
+        
     }
 }
