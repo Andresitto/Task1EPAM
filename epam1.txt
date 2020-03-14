@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Task_1
+//Дан массив целых чисел. Напишите функцию, которая получает данный массив в качестве аргумента 
+//и сортирует его по возрастанию, а также программу для демонстрации работы этой функции
+{
+    class Program
+    {
+        static void Main(string[] args) //Программа для демонстрации работы функции
+        {
+            Console.WriteLine("Введите размер массива: ");
+            int elementsCount = int.Parse(Console.ReadLine());
+            int[] myArray = new int[elementsCount];
+
+            getArrayKeys(myArray);//Функция ввода массива с клавиатуры
+
+            sortMyArray(myArray); //Вызов функции сортировки
+
+            getMyArray(myArray);//Вывод всего массива
+        }
+
+        //Функция ввода массива с клавиатуры
+        private static void getArrayKeys(int[] myArray)
+        {
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.Write("Введите " + (i + 1) + " число массива: ");
+                int elementKey = int.Parse(Console.ReadLine());
+                myArray[i] = elementKey;
+            }
+            Console.WriteLine();
+        }
+        //Функция сортировки(можно использовать Array.Sort(myArray) вместо написанной функции)
+        private static void sortMyArray(int[] myArray)
+        {
+            int check; //переменная для цикла сортировки
+            for (int i = 0; i < myArray.Length - 1; i++)
+            {
+                for (int j = 0; j < myArray.Length - i - 1; j++)
+                {
+                    if (myArray[j] > myArray[j + 1])
+                    {
+                        check = myArray[j];
+                        myArray[j] = myArray[j + 1];
+                        myArray[j + 1] = check;
+                    }
+                }
+            }
+        }
+        //Функция вывода всего массива
+        private static void getMyArray(int[] myArray)//Ввод массива с клавиатуры
+        {
+            Console.WriteLine("Отсортированный массив по возрастанию: ");
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.Write(myArray[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
