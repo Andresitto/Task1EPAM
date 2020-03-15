@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Задание_5
+namespace Task_5
 {
     class Program
     {
@@ -12,7 +12,7 @@ namespace Задание_5
         {
             Console.WriteLine("Введите скобочную последовательность");
             var s = Console.ReadLine();
-            var checker = new CheckerScobok();
+            var checker = new сheckerBrackets();
 
             foreach (var ch in s)
                 checker.Put(ch);
@@ -20,7 +20,7 @@ namespace Задание_5
             Console.WriteLine(checker.Balanced);
         }
 
-        class CheckerScobok
+        class сheckerBrackets
         {
             private readonly string opening = "([{";
             private readonly string closing = ")]}";
@@ -32,7 +32,7 @@ namespace Задание_5
             public bool Balanced => !cantBeBalanced && !opened.Any();
 
             public void Put(char ch)
-            {
+            { 
                 if (cantBeBalanced) return;
 
                 int index = opening.IndexOf(ch);
