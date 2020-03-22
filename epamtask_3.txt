@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Task_3 //Дана строка, вывести только те слова, которые встречаются в ней только один раз
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите строку");
+            string str = Console.ReadLine();
+            string[] myArray = str.Split(' ', '.', ',', '!', '?', ';');
+            checkArray(myArray);
+        }
+        //Функция определения схожести слова
+        private static void checkArray(string[] myArray)
+        {
+            int counter = 0;
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                string temp = myArray[i];
+                for (int j = 1; j < myArray.Length; j++)
+                {
+                    if (myArray[j]==temp)
+                    {
+                        counter++;
+                        if (counter == 0)
+                        {
+                            Console.WriteLine(temp);
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
