@@ -10,8 +10,6 @@ namespace Task_3 //Дана строка, вывести только те сл�
     {
         static void Main(string[] args)
         {
-
-
             Console.WriteLine("Введите строку");
             string str = Console.ReadLine();
             string[] myArray = str.Split(' ', '.', ',', '!', '?', ';');//Без Split не смог
@@ -19,12 +17,11 @@ namespace Task_3 //Дана строка, вывести только те сл�
             checkArray(myArray);
             Console.ReadLine();
         }
-        //Функция определения схожести слова
+        //Функция определения слова повторяемого один раз
         private static void checkArray(string[] myArray)
         {
             for (int i = 0; i < myArray.Length; i++)
             {
-                
                 int counter = 0;
                 string temp = myArray[i];
                 for (int j = 0; j < myArray.Length; j++)
@@ -46,31 +43,6 @@ namespace Task_3 //Дана строка, вывести только те сл�
             for (int i = 0; i < myArray.Length; i++)
             {
                 Console.Write(myArray[i]+" ");
-            }
-        }
-        //Функция проверки на орфографические знаки
-        private static bool checkFunction(char ch)
-        {
-            if (ch == ' ' || ch == ',' || ch == '.' || ch == '!' || ch == '?')
-            { return true; }
-            else
-                return false;
-        }
-        //Функция разбиения строки на символы
-        private static void getWordsArray(char[] myArray)
-        {
-            char temp = 0;
-            int i = 0;
-            while (myArray[i] == myArray.Length)
-            {
-                if (!checkFunction(myArray[i]))
-                {
-                    char temp = temp+myArray[i];   
-                }
-                else
-                {
-                   
-                } 
             }
         }
     }
